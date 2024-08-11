@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day_3_html_form</title>
+  </head>
+  <body>
+    <h2>
+      form 태그 : 서버의 db와 연동시 필요한 정보를 요청(request) /
+      응답(response)이 이뤄지게끔 하는 부모의 영역으로 선언
+    </h2>
+    <h3>로그인 구성하기</h3>
+    <form name="login_form" action="./submit.html" method="post">
+      <input
+        type="text"
+        name="user_id"
+        placeholder="아이디 입력"
+        maxlength="10"
+        required
+      /><br />
+      <input
+        type="password"
+        name="user_pw"
+        id=""
+        placeholder="패스워드 입력"
+        required
+      /><br />
+      <input type="reset" value="취소" />
+      <input type="submit" name="" id="" value="로그인" />
+    </form>
+
+    <h3>댓글 작성하기</h3>
+    <form name="review_form" action="" method="post">
+      <textarea
+        name="review_box"
+        id=""
+        cols="50"
+        rows="5"
+        placeholder="10~100자 까지 작성해주세요"
+        minlength="10"
+        maxlength="100"
+        style="resize: none;"
+        required
+      ></textarea>
+
+      <input type="submit" value="리뷰 작성" />
+      <input type="reset" value="초기화" />
+    </form>
+
+    <h3>회원 가입하기</h3>
+    <form name="register_form" action="" method="post">
+      <p>아이디&nbsp;<sup style="color: red;">*</sup></p>
+      <input type="text" name="user_id" placeholder="아이디" required />
+      <input type="button" value="중복 확인" />
+
+      <p>패스워드&nbsp;<sup style="color: red;">*</sup></p>
+      <input type="password" name="user_pw" placeholder="패스워드" required />
+
+      <p>패스워드 확인&nbsp;<sup style="color: red;">*</sup></p>
+      <input
+        type="password"
+        name="user_pw_confirm"
+        placeholder="패스워드 확인"
+        required
+      />
+
+      <p>이메일&nbsp;<sup style="color: red;">*</sup></p>
+      <input type="email" name="user_email" placeholder="이메일" required />
+
+      <h4>선택 입력 사항</h4>
+      <p>성별</p>
+      <input type="radio" name="gender" value="man" />&nbsp;남성<br />
+      <input type="radio" name="gender" value="woman" />&nbsp;여성<br />
+      <!-- 라디오 버튼은 다수의 항목 중에서 하나만 선택해야할 때 사용한다 [주의사항] 반드시 name의 값을 동일하게 작성해야함 -->
+
+      <p>취미</p>
+      <input type="checkbox" name="habby" value="수영" checked />&nbsp;수영
+      <input type="checkbox" name="habby" value="요가" />&nbsp;요가
+      <input type="checkbox" name="habby" value="등산" />&nbsp;등산
+      <input type="checkbox" name="habby" value="축구" />&nbsp;축구
+      <!-- 체크박스는 다수 선택이 가능함, name의 값을 여러개 사용해도 무관함 -->
+
+      <hr />
+
+      <input type="submit" value="회원가입" />
+    </form>
+
+    <h3>버튼 비교(type="submit" | type="reset" | type="button")</h3>
+
+    <input type="submit" value="전송" />
+    <button type="submit">
+      전송&nbsp; <img src="./img/right.png" alt="" style="height: 8px;" />
+    </button>
+    <!-- input - 이미지 못넣음 | button - 이미지 가능 -->
+    <br />
+    <input type="reset" value="초기화" />
+    <button type="reset">초기화</button>
+    <br />
+    <input type="button" value="버튼" />
+    <button type="button">버튼</button>
+
+    <h3>컬러 추출</h3>
+    <input type="color" name="import_color" />
+    <!-- 컬러타입
+     문자 (red, orange.....etc)
+     rgb (0 ~ 255, 0 ~ 255, 0 ~ 255)
+     hex code (#000000 ~ #ffffff -> #00(red 파트 - 번호 동일하면 하나로 표현 가능)00(green 파트)00(blue 파트)) -->
+
+    <div style="width: 100px; height: 100px; background-color: #f00;">
+      박스1
+    </div>
+    <div style="width: 100px; height: 100px; background-color: rgb(255, 0, 0);">
+      박스2
+    </div>
+    <div style="width: 100px; height: 100px; background-color: red;">박스3</div>
+
+    <h3>날짜 캘린더를 보여주는 입력 상자</h3>
+    <input type="date" name="checkin" />~
+    <input type="date" name="checkout" />
+    <input type="month" />
+    <input type="week" />
+
+    <h3>첨부파일</h3>
+    <input type="file" name="upload_single" />
+    <input type="file" name="upload_several" multiple />
+
+    <h3>각 입력상자 이름을 지정하는 태그 : label</h3>
+    <label for="review">리뷰</label>
+    <textarea
+      name="reciew_space"
+      id="review"
+      style="resize: none; width: 100%;"
+    ></textarea>
+
+    <h3>검색창</h3>
+    <input type="search" />
+
+    <h3>고유 코드 : 일반적인 사용자에게는 노출하지 않는 경우</h3>
+    <input type="hidden" value="sd0000-33" />
+
+    <h3>숫자만 입력</h3>
+    <input type="number" />
+
+    <h3>선택 상자</h3>
+    <select name="" id="">
+      <option value="서울">서울</option>
+      <option value="경기" selected>경기</option>
+      <option value="인천">인천</option>
+      <option value="충남">충남</option>
+    </select>
+    <br />
+    <select name="select_region" id="">
+      <optgroup label="강남구">
+        <option value="대치동">대치동</option>
+        <option value="논현동">논현동</option>
+        <option value="도곡동">도곡동</option>
+      </optgroup>
+      <optgroup label="서초구">
+        <option value="방배동">방배동</option>
+        <option value="반포동">반포동</option>
+        <option value="서초동">서초동</option>
+      </optgroup>
+    </select>
+
+    <h3>gatalist 활용</h3>
+    <label for="disney_choice">디즈니 영화 선택</label>
+    <input type="text" list="disney_select" id="disney_choice" />
+
+    <datalist id="disney_select">
+      <option value="겨울왕국">겨울왕국</option>
+      <option value="라푼젤">라푼젤</option>
+      <option value="위시">위시</option>
+    </datalist>
+
+    
+  </body>
+</html>
